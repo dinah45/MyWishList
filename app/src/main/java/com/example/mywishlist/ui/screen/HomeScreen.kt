@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.example.mywishlist.R
 import androidx.compose.foundation.lazy.items
 import com.example.mywishlist.ui.data.DummyWish
+import com.example.mywishlist.ui.screen.destinations.AddScreenDestination
+import com.example.mywishlist.ui.screen.destinations.HomeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootNavGraph
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -25,7 +27,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @RootNavGraph(start = true)
 @Composable
-fun HomeScreen (navigator: DestinationsNavigator){
+fun HomeScreen (navigator: DestinationsNavigator, viewModel: WishViewModel){
  Scaffold (
       topBar = {AppBar(title = "Wish List", {
 
@@ -35,7 +37,10 @@ fun HomeScreen (navigator: DestinationsNavigator){
              modifier = Modifier.padding(20.dp),
              contentColor = Color.White,
              backgroundColor = colorResource(id = R.color.app_bar_color),
-             onClick = { /*TODO*/ }){
+             onClick = {
+                 navigator.navigate(AddScreenDestination)
+             //                 navigator.navigate(AddScreenDestination)
+             }){
              Icon(imageVector = Icons.Default.Add, contentDescription = "")
          }
      }

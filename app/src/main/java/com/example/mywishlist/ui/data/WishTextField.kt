@@ -34,10 +34,9 @@ fun WishTextField(
     )
 }
 
-@Preview
-@Composable
-fun WishTextFieldPrev(){
-    WishTextField(label = "text", value = "text" , onValueChanged = {})
-
-    }
-}
+//@Preview
+//@Composable
+//fun WishTextFieldPrev(){
+//    WishTextField(label = "text", value = "text" , onValueChanged = {})
+//
+//    }
