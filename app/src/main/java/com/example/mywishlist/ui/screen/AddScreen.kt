@@ -23,16 +23,18 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Destination
 @Composable
 fun AddScreen(
+    navigator: DestinationsNavigator,
     id: Long,
-    viewModel: WishViewModel,
-    navigator: DestinationsNavigator
+    viewModel: WishViewModel
 ){
     Scaffold (
         topBar = {
             AppBar(title =
             if (id != 0L) "UpdateWish" else " Add Wish"
-            )
-        }
+            ){
+                navigator.navigateUp()
+            }
+        },
     ){
         Column (
             modifier = Modifier

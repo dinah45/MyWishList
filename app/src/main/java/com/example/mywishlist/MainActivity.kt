@@ -16,14 +16,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.NavGraph
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.mywishlist.ui.screen.HomeScreen
+import com.example.mywishlist.ui.screen.SplashScreen
 import com.example.mywishlist.ui.screen.WishViewModel
 import com.example.mywishlist.ui.theme.MyWishListTheme
 import com.google.accompanist.navigation.material.ExperimentalMaterialNavigationApi
 import com.ramcosta.composedestinations.DestinationsNavHost
+import com.ramcosta.composedestinations.animations.rememberAnimatedNavHostEngine
 import com.ramcosta.composedestinations.rememberNavHostEngine
 
 @OptIn(ExperimentalMaterialNavigationApi::class, ExperimentalAnimationApi::class)
@@ -34,11 +35,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             val viewModel: WishViewModel = WishViewModel()
             MyWishListTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(modifier = Modifier.fillMaxSize()) {
 DestinationsNavHost(
     navGraph = NavGraphs.root,
     navController = rememberNavController(),
-    engine = rememberNavHostEngine(),
+    engine = rememberAnimatedNavHostEngine()
 )
                 }
             }
